@@ -17,7 +17,6 @@ class Abonnement
       GROUP BY a.id, a.code, a.prix_mois, a.prix_semester, a.prix_annuel");
     }
 
-
     function addAbonnement($Data)
     {
         var_dump($Data);

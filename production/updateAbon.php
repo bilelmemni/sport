@@ -1,5 +1,11 @@
 <?php
-
+# Initialize the session
+session_start();
+#  guardiing
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
+    echo "<script>" . "window.location.href='./login.php';" . "</script>";
+    exit;
+  }
 include "../production/classe/activite.php";
 $Activite = new Activite();
 $listActivite = $Activite->listActivite();
@@ -54,11 +60,11 @@ header(("location: listeAbon.php"));
 
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+                            <img src="images/bolbol.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome</span>
-                            <h2>Adem Fakhfakh</h2>
+                            <h2> <?= htmlspecialchars($_SESSION["username"]); ?></h2>
                         </div>
                     </div>
 
@@ -134,11 +140,11 @@ header(("location: listeAbon.php"));
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/adem.jpg" alt="">Adem Fakhfakh
+                                    <img src="images/bolbol.jpg" alt="">
                                 </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                    
-                                    <a class="dropdown-item" href="index.php"><i class="fa fa-sign-out pull-right"></i> Déconnecter</a>
+                                    <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i> Déconnecter</a>
                                 </div>
                             </li>
 
@@ -147,7 +153,7 @@ header(("location: listeAbon.php"));
                                 <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/adem.jpg" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -159,7 +165,7 @@ header(("location: listeAbon.php"));
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/adem.jpg" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -171,7 +177,7 @@ header(("location: listeAbon.php"));
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/adem.jpg" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -183,7 +189,7 @@ header(("location: listeAbon.php"));
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/adem.jpg" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>

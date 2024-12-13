@@ -15,6 +15,7 @@ class Emploi
     }
     function addEmploi($Data)
     {
+        var_dump($Data);
         $activite = $Data['activite'];
         $salle = $Data['salle'];
         $entreneur = $Data['entreneur'];
@@ -23,7 +24,7 @@ class Emploi
         $occupé = $this->db->query("SELECT * FROM emploi where (idEntreneur='$entreneur' and Date_Debut<'$fin' and Date_Fin>'$debut' ) or (idSalle='$salle' and Date_Debut<'$fin' and Date_Fin>'$debut' )  ")->fetch();
 
         if (!$occupé) {
-            $this->db->exec("INSERT INTO emploi  VALUES ('','$activite','$salle','$entreneur','$debut','$fin')");
+            $this->db->exec("INSERT INTO emploi  VALUES ('','$debut','$fin','$salle',' $activite',' $entreneur')");
         } 
         
 

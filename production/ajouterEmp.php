@@ -1,4 +1,11 @@
 <?php
+# Initialize the session
+session_start();
+#  guardiing
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== TRUE) {
+  echo "<script>" . "window.location.href='./login.php';" . "</script>";
+  exit;
+}
 include "../production/classe/activite.php";
 $Activite = new Activite();
 $listActivite = $Activite->listActivite();
@@ -51,11 +58,11 @@ if (isset($_POST['add_Emploi'])) {
 
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/bolbol.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Adem Fakhfakh</h2>
+              <h2> <?= htmlspecialchars($_SESSION["username"]); ?></h2>
             </div>
           </div>
 
@@ -139,11 +146,11 @@ if (isset($_POST['add_Emploi'])) {
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/adem.jpg" alt="">Adem Fakhfakh
+                  <img src="images/bolbol.jpg" alt="">bolbol Fakhfakh
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                  
-                  <a class="dropdown-item" href="index.php"><i class="fa fa-sign-out pull-right"></i> Déconnecter</a>
+                  <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i> Déconnecter</a>
                 </div>
               </li>
 
