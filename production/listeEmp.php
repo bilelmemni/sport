@@ -10,11 +10,7 @@ include "../production/classe/emploi.php";
 
 $Emploi = new Emploi();
 $listEmploi = $Emploi->listEmploi();
-if(isset($_GET['idEmploi']))
-{
-$Emploi->deleteEmploi($_GET['idEmploi']);
-header(("location: listeEmp.php"));
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +44,7 @@ header(("location: listeEmp.php"));
                     <div class="clearfix"></div>
 
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="images/bolbol.jpg" alt="..." class="img-circle profile_img">
-                        </div>
+                       
                         <div class="profile_info">
                             <span>Welcome,</span>
                             <h2> <?= htmlspecialchars($_SESSION["username"]); ?></h2>
@@ -61,51 +55,21 @@ header(("location: listeEmp.php"));
 
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>Admin</h3>
+          
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
-                      <li><a href="listeU.php">Liste utilisateur</a></li>
-                    </ul>
-                  </li>
+                 
                
-                  <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterAct.php">Ajouter Activité</a></li>
-                      <li><a href="listeAct.php">Liste activité</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
-                      <li><a href="listeEn.php">liste entraineur</a></li>
-                    </ul>
-                  </li>
+                  
+                 
                   <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                      
                       <li><a href="listeEmp.php">Liste emploi</a></li>
                  
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                    <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
-
-                      <li><a href="listeAbon.php">Liste abonnement</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                    <li><a href="ajouterSalle.php">Ajouter salle</a></li>
-
-                      <li><a href="listeSalle.php">Liste salle</a></li>
-                     
-                    </ul>
-                  </li>
+                 
+                  
                 </ul>
               </div>
            
@@ -138,7 +102,7 @@ header(("location: listeEmp.php"));
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/bolbol.jpg" alt="">
+                                    
                                 </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                    
@@ -175,7 +139,7 @@ header(("location: listeEmp.php"));
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
+                                           >
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -187,7 +151,7 @@ header(("location: listeEmp.php"));
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="images/bolbol.jpg" alt="Profile Image" /></span>
+                                        an>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -256,7 +220,7 @@ header(("location: listeEmp.php"));
             <th scope="col">Salle</th>
             <th scope="col">Date debut</th>
             <th scope="col">date Fin</th>
-            <th scope="col">Delete</th>
+          
         </tr>
         </thead>
         <tbody>
@@ -271,7 +235,7 @@ header(("location: listeEmp.php"));
                <td>{$c['Date_Debut']}</td>
                <td>{$c['Date_Fin']}</td>
             
-               <td><a href='?idEmploi={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
+              
               </tr>";
     }
     
